@@ -1,0 +1,22 @@
+{
+  "name": "triangle-database-generator",
+  "version": "1.0.0",
+  "description": "A simple project that generates random Equilateral, Isosceles and Scalene triangles. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardoreiter/triangle-database-generator.git"
+  },
+  "keywords": [
+    "triangle"
+  ],
+  "author": "Ricardo Reiter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardoreiter/triangle-database-generator/issues"
+  },
+  "homepage": "https://github.com/ricardoreiter/triangle-database-generator#readme"
+}
