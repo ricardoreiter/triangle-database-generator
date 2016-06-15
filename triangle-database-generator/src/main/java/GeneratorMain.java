@@ -6,7 +6,6 @@ import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
-import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.highgui.Highgui;
 
@@ -20,15 +19,26 @@ public class GeneratorMain {
 	public static void main(String[] args) {
 		System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
 		
+		RTG myRTG = new RTG();
 		for (int i = 0; i < 100; i++) {
-			RTG myRTG = new RTG();
-			Triangle equilateral = myRTG.equilateral();
-			Triangle scalene = myRTG.scalene();
-			Triangle isocele = myRTG.isocele();
+			String equilateralFileName = String.format("%s%s%s.jpg", EQUILATERAL_FOLDER, File.separator, i);
+			String scaleneFileName = String.format("%s%s%s.jpg", ISOCELES_FOLDER, File.separator, i);
+			String isocelesFileName = String.format("%s%s%s.jpg", SCALENE_FOLDER, File.separator, i);
 			
-			createImageForTriangle(equilateral, String.format("%s%s%s.jpg", EQUILATERAL_FOLDER, File.separator, i));
-			createImageForTriangle(scalene, String.format("%s%s%s.jpg", ISOCELES_FOLDER, File.separator, i));
-			createImageForTriangle(isocele, String.format("%s%s%s.jpg", SCALENE_FOLDER, File.separator, i));
+			if (!new File(equilateralFileName).exists()) {
+				Triangle equilateral = myRTG.equilateral();
+				createImageForTriangle(equilateral, equilateralFileName);
+			}
+			
+			if (!new File(scaleneFileName).exists()) {
+				Triangle scalene = myRTG.scalene();
+				createImageForTriangle(scalene, scaleneFileName);
+			}
+			
+			if (!new File(isocelesFileName).exists()) {
+				Triangle isocele = myRTG.isocele();
+				createImageForTriangle(isocele, isocelesFileName);
+			}
 		}
 	}
 	
